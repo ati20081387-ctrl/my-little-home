@@ -1,0 +1,27 @@
+/* Cinematic motion and gentle micro-interactions */
+@keyframes pulse{0%,100%{opacity:1;transform:translateX(-50%) scale(1)}50%{opacity:.8;transform:translateX(-50%) scale(1.035)}}
+@keyframes blink{0%,44%,56%,100%{transform:scaleY(1)}50%{transform:scaleY(.12)}}
+@keyframes tailWag{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(18deg)}}
+@keyframes sway{0%,100%{transform:translateX(-50%) rotate(-5deg)}50%{transform:translateX(-50%) rotate(6deg)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(35px)}to{opacity:1;transform:translateX(0)}}
+@keyframes doorOpen{from{transform:translateX(-50%) perspective(700px) rotateY(0)}to{transform:translateX(-50%) perspective(700px) rotateY(-85deg)}}
+@keyframes zoomIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+@keyframes softGlow{0%,100%{box-shadow:0 0 12px rgba(255,200,130,.12)}50%{box-shadow:0 0 28px rgba(255,200,130,.4)}}
+@keyframes starDrift{from{transform:translateY(0)}to{transform:translateY(-22px)}}
+@keyframes houseArrive{from{opacity:0;transform:translateY(35px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes hintFloat{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-7px)}}
+@keyframes catRoam{0%,100%{transform:translateX(0) translateY(0)}25%{transform:translateX(-15px) translateY(-3px)}58%{transform:translateX(13px) translateY(0)}78%{transform:translateX(5px) translateY(-2px)}}
+@keyframes curtainSway{0%,100%{transform:translateX(0);opacity:.2}50%{transform:translateX(10px);opacity:.55}}
+@keyframes sunlightShift{0%,100%{opacity:.45}50%{opacity:.9}}
+.animate-in{animation:fadeIn .65s cubic-bezier(.2,.75,.25,1) both}
+.section-view.active{animation:zoomIn .5s ease-out both}
+.door.opening{animation:doorOpen .9s cubic-bezier(.2,.75,.25,1) forwards}
+[data-theme="dark"] .speaker{animation:softGlow 3.5s ease-in-out infinite}
+.cat{animation:catRoam 15s ease-in-out infinite}
+.large-window::after{content:"";position:absolute;top:0;left:0;width:35px;height:100%;background:linear-gradient(90deg,rgba(255,255,255,.18),transparent);animation:curtainSway 7s ease-in-out infinite;pointer-events:none}
+[data-theme="dark"] .large-window::after{background:linear-gradient(90deg,rgba(255,220,170,.1),transparent)}
+.sunlight-overlay{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(125deg,transparent 12%,var(--sunlight) 45%,transparent 70%);opacity:0}
+[data-theme="light"] .sunlight-overlay{opacity:.75;animation:sunlightShift 9s ease-in-out infinite}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:20px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
